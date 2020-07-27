@@ -1,0 +1,56 @@
+.greyout{
+    background-color: rgba(0,0,0,0.5);
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:9000; 
+}
+.eventlist .show{
+    display:block;
+}
+
+.eventlist .hide{
+    display: none;
+}
+
+.eventlist {
+    position: absolute;
+    width: 250px;
+    left: calc(50% - 125px);
+    top: 15%;
+    border: 1px solid #1C77C3;
+    background-color: #5EAAE8;
+    border-radius: 4px;
+    padding: 0.6rem;
+    z-index: 9005;
+    text-align: left;
+}
+.eventlist .button {
+    border-radius: 4px;
+}
+
+.eventlist ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1rem;
+}
+
+.eventlist .title p, .eventlist ul li {
+    background-color: #fff;
+    color: #0A0424;
+    border-radius: 4px;
+    border: 1px solid #1C77C3;
+    min-height: 40px;
+    min-width: 50px;
+    line-height: 2.2;
+    padding: 0 0.6rem 0 0.6rem;
+    margin: 2px 0 2px 0;
+}
+.eventlist ul li p{
+    margin: 0;
+}
+.bottom-border {
+    border-bottom: 1px solid #1C77C3;
+}

@@ -1,0 +1,128 @@
+.calendar-main-css {
+  position: relative;
+  min-width: 765px;
+  min-height: 320px;
+  max-width: 800px;
+  margin: 1rem;
+}
+
+.calendar-main-css .week{
+  display: flex;
+  flex:1;
+  margin-left: auto;
+  margin-right: auto;
+}
+.calendar-main-css .day::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+.calendar-main-css .day::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius: 10px;
+}
+
+.calendar-main-css .day {
+  font-size: 0.8rem;
+  min-width: 30px;
+  min-height: 30px;
+  max-height: 110px;
+  height: 10vw;
+  width: 10vw;
+  padding: 0.6rem;
+  box-shadow: 
+    -1px -1px grey, 
+    inset -1px -1px 0 0 grey;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  overflow-y:hidden;
+}
+
+.calendar-main-css .day p{
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+}
+.calendar-main-css .calendar-main-css.active {
+  background-color: #fff;
+  color:#1C77C3;
+}
+.calendar-main-css .inactive{
+  background-color: #5EAAE8;
+  color:#0A0424;
+}
+.calendar-main-css .select-wrapper {
+  display: inline-block;
+}
+
+.calendar-main-css select{
+  overflow-y: auto;
+  padding: 6px 12px;
+  border-bottom: 1px solid grey;
+  border-right: 0;
+  border-left:0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-align: center;
+  text-align-last: center;
+  -moz-text-align-last: center;
+}
+.calendar-main-css .button:hover {
+  background-color:#0A0424;
+  color:#5EAAE8;
+}
+
+.calendar-main-css .button:active,.calendar-main-css .button:focus{
+  outline: none; 
+}
+.calendar-main-css select::-webkit-scrollbar {
+  width: 1px;
+}
+
+.calendar-main-css .event{
+  border: 1px solid #5EAAE8;
+  border-radius: 4px;
+  background-color: #fff;
+  color:#5EAAE8; 
+  line-height: 1.5;
+}
+.calendar-main-css .active .event:hover{
+  background-color: #5EAAE8;
+  border-color: #1C77C3;
+  color:#fff;  
+}
+.calendar-main-css .event-badge{
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: #5EAAE8;
+  border: 0.1em solid #5EAAE8;
+  color: #fff;
+  text-align: center;
+  border-radius: 0.4em;    
+  line-height: 0.9em;
+  box-sizing: content-box; 
+}
+.calendar-main-css .inactive .event-badge, .calendar-main-css .inactive .event {
+  background-color: #0A0424;
+  color:#fff;
+  border-color: #0A0424;
+}
+
+.calendar-main-css .inactive .event:hover{
+  background-color: #fff;
+  color:#0A0424;
+  border-color: #1C77C3;
+}
+.calendar-main-css .inactive .event:hover .event-badge{
+  background-color: #fff;
+  color:#0A0424
+}
+.calendar-main-css .active .event:hover .event-badge{
+  background-color: #fff;
+  border-color: #fff;
+  color:#5EAAE8
+}
+
+
+

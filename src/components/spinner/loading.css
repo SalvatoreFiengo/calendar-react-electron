@@ -1,0 +1,33 @@
+.grayout{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:rgba(0,0,0,0.6);
+    z-index: 20;
+}
+@keyframes square-shape{
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(180deg);
+    }
+}
+@keyframes square-color{
+    0%{background-color: red;}
+    50%{background-color: yellow;}
+    100%{background-color: green;}
+}
+.square-animation{
+    position:absolute;
+    top:calc(50% - 50px);
+    left:calc(50% - 50px);
+    width:100px;
+    height:100px;
+    animation: square-shape ease infinite 2s,
+        square-color ease infinite 2s;
+    z-index: 50;
+
+}
