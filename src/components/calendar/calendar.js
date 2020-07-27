@@ -26,7 +26,7 @@ export default class Calendar extends React.Component{
         this.handleMonthOnChange = this.handleMonthOnChange.bind(this);
         this.toggleEventList=this.toggleEventList.bind(this);
     };
-
+    // calendar controller functions:
     handlePrevClick(e) {
         e.preventDefault();
         let year = this.state.currentYear
@@ -85,6 +85,7 @@ export default class Calendar extends React.Component{
             dates:helper.getDates(month, this.state.currentYear,this.state.data)
         })
     }
+    // toggle event list when event is selected from calendar day
     toggleEventList(day=undefined){
         if(day !== undefined){
             this.setState((ps)=>({
@@ -98,10 +99,7 @@ export default class Calendar extends React.Component{
             })) 
         }
     }
-    //add event and form onchange
-    handleFormOnSubmit = ()=>{
-        console.log(this.state.eventForm)
-    }
+    //event form submit
     addEvent = (e,form)=>{
         e.preventDefault();
         const dataInStorage = JSON.parse(localStorage.getItem('data'));
@@ -114,6 +112,7 @@ export default class Calendar extends React.Component{
             data:data
         })
     }
+    // loading data in and from localstorage
     componentDidMount(){
         let dataObj ={}
         this.props.data.forEach((el,i)=>{
