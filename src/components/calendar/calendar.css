@@ -40,7 +40,8 @@
 
 .calendar-main-css .day p{
   margin-top: 0;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.2rem;
+  min-height: 20px;
 }
 .calendar-main-css .calendar-main-css.active {
   background-color: #fff;

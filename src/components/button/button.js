@@ -10,7 +10,7 @@ export default class Button extends React.Component{
                 onClick={this.props.onClick} 
                 type={this.props.type!==undefined?this.props.type:""}
                 >
-                    {this.props.buttonText}
+                    {this.props.buttonText} {this.props.children}
             </button>
             )
     }

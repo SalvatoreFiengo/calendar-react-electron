@@ -96,14 +96,44 @@ const getDates=(month=1, selectedYear,propsdata, selectedDay=new Date().getDate(
     };
     return monthDates;
 }
-
+const getHours=()=>{
+    let hoursArr=[];
+    let hour;
+    for(let i=0;i<=24;i++){
+        if(i<10){
+            hour="0"+i;
+        }else{
+            hour=""+i;
+        }
+        hoursArr.push(hour+":00");
+        hoursArr.push(hour+":30");
+    }
+    return hoursArr;
+}
+const getCurrentTime=()=>{
+    const date = new Date();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    let strHours="";
+    let strMin="";
+    let current="";
+    if(hours<10)strHours="0"+hours
+    else(strHours=""+hours);
+    if(minutes<10)strMin="0"+minutes
+    else(strMin=""+minutes);;
+    if(minutes%10===0)current = strHours+":"+strMin
+    else(current = strHours+":00")
+    return current
+}
 let helper = {
     populateEvents:populateEvents,
     getYearsList:getYearsList,
     getFirstDay:getFirstDay,
     getLastDay:getLastDay,
     checkCurrentMonth:checkCurrentMonth,
-    getDates:getDates
+    getDates:getDates,
+    getHours:getHours,
+    getCurrentTime:getCurrentTime
 };
 
 export {helper}

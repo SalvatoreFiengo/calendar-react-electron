@@ -161,7 +161,7 @@ export default class Calendar extends React.Component{
                                                 onClick={()=>this.toggleEventList(day)} 
                                                 className='event pointer'>
                                                 {day.data.length > 1? <p>'Events' <span className='event-badge'>{day.data.length}</span></p>
-                                                :<p>{day.data[0].eventName.substring(0,20).replace(day.data[0].eventName.substring(17,20),' ...')}</p>}</div>
+                                                :<p>{day.data[0].eventName.substring(0,10).replace(day.data[0].eventName.substring(7,10),'...')}</p>}</div>
                                             :null
                                         }
                                     </div>
