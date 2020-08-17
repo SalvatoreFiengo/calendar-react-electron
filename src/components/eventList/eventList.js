@@ -42,6 +42,12 @@ export default class EventList extends React.Component{
             showAllDay:ps.showListByHour
         }))
     }
+    componentWillMount(){
+        this.setState({
+            showAllDay:false,
+            showListByHour:true
+        })
+    }
     render(){
         const day = this.props.day;
         let eventsShow=this.props.eventsShow? 'show':'hide';
@@ -68,73 +74,72 @@ export default class EventList extends React.Component{
                         borderColor : '#000000'
                     }}/>
                     {!this.state.showAllDay && day.data.filter(data=>(data.from===""&&data.to==="")).length>0?
+                        <div>
                         <div className='d-inline-block'>
                             <Button onClick={this.handleSwitchAllDay} buttonText="All Day Events">
                                 <span className="event-badge">{day.data.filter(data=>(data.from===""&&data.to==="")).length}</span>
                             </Button>
                         </div>
-                        :null
-                    }
-                    {this.state.showListByHour?
-                        null:
-                        <div className='d-inline-block'>
-                            <Button onClick={this.handleSwitchbyHour} buttonText="Events Today">
-                                <span className="event-badge">{day.data.filter(data=>(data.from!==""&&data.to!=="")).length}</span>
-                            </Button>
+                            <ul>
+                                {hours.map((hour,i)=>{
+                                    return (
+                                        <li key={i}>
+                                            <span>
+                                                {hour}
+                                            </span>
+                                            {day.data
+                                                .map(data=>{
+                                                    return(
+                                                    <span key={data.eventId}>
+                                                        <div>
+                                                            {data.from===hour||data.to===hour?
+                                                                <div ref={current===hour||hour==="08:00"?this.setRef:null}>
+                                                                    <p>From h:{data.from} to h:{data.to}</p>
+                                                                <hr  style={{
+                                                                    color: '#1C77C3',
+                                                                    backgroundColor: '#1C77C3',
+                                                                    height: .3,
+                                                                    borderColor : '#1C77C3'
+                                                                }}/> 
+                                                                <p>"{data.eventName}"</p></div>
+                                                            :null}
+                                                        </div>
+                                                    </span>
+                                                    )
+                                                })
+                                            }
+                                        </li> 
+                                        )
+                                    })
+                                }
+                            </ul>
+                        </div>
+                        :
+                        <div>
+                            <div className='d-inline-block'>
+                                <Button onClick={this.handleSwitchbyHour} buttonText="Events Today">
+                                    <span className="event-badge">{day.data.filter(data=>(data.from!==""&&data.to!=="")).length}</span>
+                                </Button>
+                            </div>
+                            <ul>
+                                {day.data.filter(data=>(data.from===""&&data.to===""))
+                                    .map(data=>{
+                                        return(
+                                        <li key={data.eventId}>
+                                            <p>"All day event"</p>
+                                            <hr  style={{
+                                                color: '#1C77C3',
+                                                backgroundColor: '#1C77C3',
+                                                height: .3,
+                                                borderColor : '#1C77C3'
+                                            }}/> 
+                                            <p>"{data.eventName}"</p>
+                                        </li>)
+                                    })
+                                }
+                            </ul>
                         </div>
                     }
-                    {this.state.showAllDay?
-                    <ul>
-                        {day.data.filter(data=>(data.from===""&&data.to===""))
-                            .map(data=>{
-                                return(
-                                <li>
-                                    <p>"All day event"</p>
-                                    <hr  style={{
-                                        color: '#1C77C3',
-                                        backgroundColor: '#1C77C3',
-                                        height: .3,
-                                        borderColor : '#1C77C3'
-                                    }}/> 
-                                    <p>"{data.eventName}"</p>
-                                </li>)
-                            })}
-                    </ul>
-                    :null}
-                    {this.state.showListByHour?
-                    <ul>
-                        {hours.map((hour,i)=>{
-                            return (
-                                <li key={i}>
-                                    <span>
-                                        {hour}
-                                    </span>
-                                    {day.data
-                                        .map(data=>{
-                                            return(
-                                            <span key={data.eventId}>
-                                                <div>
-                                                    {data.from===hour||data.to===hour?
-                                                        <div ref={current===hour||hour==="08:00"?this.setRef:null}>
-                                                            <p>From h:{data.from} to h:{data.to}</p>
-                                                        <hr  style={{
-                                                            color: '#1C77C3',
-                                                            backgroundColor: '#1C77C3',
-                                                            height: .3,
-                                                            borderColor : '#1C77C3'
-                                                        }}/> 
-                                                        <p>"{data.eventName}"</p></div>
-                                                    :null}
-                                                </div>
-                                            </span>
-                                            )
-                                        })
-                                    }
-                                </li> 
-                                )
-                            })
-                        }
-                    </ul>:null}
                 <Button onClick={this.props.close} buttonText='Close'/>     
                 </div>:null}
             </div>  

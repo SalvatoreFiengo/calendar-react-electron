@@ -81,6 +81,7 @@
 }
 
 .calendar-main-css .event{
+  margin-top: 20%;
   border: 1px solid #5EAAE8;
   border-radius: 4px;
   background-color: #fff;
