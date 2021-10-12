@@ -33,7 +33,7 @@
     ]
   },
   "devDependencies": {
-    "electron": "^9.1.0",
+    "electron": "^11.5.0",
     "react-scripts": "3.4.1"
   }
 }
